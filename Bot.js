@@ -46,7 +46,7 @@ var msgcount = function (message) {
 }
 
 var info = function (message) {
-    mybot.sendMessage(message, "M_R Bot - Version 1.1.1 (Build 30) \nBuilddate: 26th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
+    mybot.sendMessage(message, "M_R Bot - Version 1.1.1 (Build 31) \nBuilddate: 26th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
     logger("Command: !!info")
 }
 
@@ -72,7 +72,7 @@ var outages = function (message) {
 var dice = function (message) {
     var dice = Math.random()
     dice = dice * 6
-    logger("Command: !!dice/ndice = " + dice)
+    logger("Command: !!dice\ndice = " + dice)
     if (dice < 1) {
         mybot.sendMessage(message, ":one:")
     }
