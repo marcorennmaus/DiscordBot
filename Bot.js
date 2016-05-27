@@ -1,7 +1,7 @@
 ﻿/*
 DiscordBot by marco_rennmaus
-Build: 32
-Version 1.1.1
+Build: 36
+Version 1.1.3
 Library used: discord.js
 */
 
@@ -47,12 +47,12 @@ var msgcount = function (message) {
 }
 
 var info = function (message) {
-    mybot.sendMessage(message, "M_R Bot - Version 1.1.2 (Build 32) \nBuilddate: 26th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
+    mybot.sendMessage(message, "M_R Bot - Version 1.1.3 (Build 36) \nBuilddate: 27th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
     logger("Command: !!info")
 }
 
 var commands = function (message) {
-    mybot.sendMessage(message, "```Following Commands are available:\n!!changelog   Displays the latest changelog.\n!!commands    Displays all Commands.\n!!dice        Gives random number between 1 and 6.\n!!fusion      XEN - Fusion\n!!givemesucc  s u c c   s u c c\n!!info        Gives Info about the Bot.\n!!msgcount    Gives count of all messages.\n!!outages     Displays recent outages.\n!!ping        Pong.\n!!pong        Ping.\n!!righten     XEN feels cucked.```")
+    mybot.sendMessage(message, "```Following Commands are available:\n!!b1nzy       Cat.\n!!changelog   Displays the latest changelog.\n!!commands    Displays all Commands.\n!!dice        Gives random number between 1 and 6.\n!!fusion      XEN - Fusion\n!!givemesucc  s u c c   s u c c\n!!info        Gives Info about the Bot.\n!!msgcount    Gives count of all messages.\n!!outages     Displays recent outages.\n!!ping        Pong.\n!!pong        Ping.\n!!righten     XEN feels cucked.```")
     logger("Command: !!commands")
 }
 
@@ -62,7 +62,7 @@ var givemesucc = function (message) {
 }
 
 var changelog = function (message) {
-    mybot.sendMessage(message, "M_R Bot Changelog:\n\nVersion 1.1.2:\n + Added !!b1nzy\n\nVersion 1.1.1:\n + Added !!outages\n\nVersion 1.1.0.1:\n - Restricted Bot Usage in #general on the MonsterLyrics server.\n\nVersion 1.1:\n + Rewrote Bot, Filesize significantly decreased.\n\nVersion 1.0.3.2:\n - Bugfix: Bot dies for no reason after inactivity\n\nVersion 1.0.3.1:\n - Modified !!info-Output\n\nVersion 1.0.3:\n + Added !!dice\n\nVersion 1.0.2:\n +Added message logging to a file\n\nVersion 1.0.1:\n+ Added !!commands\n+ Added !!info\n+ Added !!givemesucc\n+ Added !!changelog\n+ Added some logging to the Console\n\nVersion 1.0.0:\n- First Release")
+    mybot.sendMessage(message, "M_R Bot Changelog:\n\nVersion 1.1.3:\n - If !!b1nzy fails, it will now respond with a error.\n- Restricted Bot Usage in #general on the Discord Bots-Server\n\nVersion 1.1.2:\n + Added !!b1nzy\n\nVersion 1.1.1:\n + Added !!outages\n\nVersion 1.1.0.1:\n - Restricted Bot Usage in #general on the MonsterLyrics server.\n\nVersion 1.1:\n + Rewrote Bot, Filesize significantly decreased.\n\nVersion 1.0.3.2:\n - Bugfix: Bot dies for no reason after inactivity\n\nVersion 1.0.3.1:\n - Modified !!info-Output\n\nVersion 1.0.3:\n + Added !!dice\n\nVersion 1.0.2:\n +Added message logging to a file\n\nVersion 1.0.1:\n+ Added !!commands\n+ Added !!info\n+ Added !!givemesucc\n+ Added !!changelog\n+ Added some logging to the Console\n\nVersion 1.0.0:\n- First Release")
     logger("Command: !!changelog")
 }
 
@@ -72,8 +72,20 @@ var outages = function (message) {
 }
 
 var b1nzy = function (message) {
-    mybot.sendFile(message.channel, "C:/Users/User/DiscordBot/b1nzy.jpg")
+    b1nzychannel = message.channel.id
+    mybot.sendFile(message.channel, "C:/Users/User/DiscordBot/b1nzy.jpg", error)
+    //mybot.sendMessage(message, "http://i.imgur.com/wzDzYlp.jpg")
     logger("Command: !!binzy")
+}
+
+var error = function (err) {
+    logger("Something fucked up.")
+    logger("Error: " + err)
+    if (err === null)
+    {
+        return false;
+    }
+    mybot.sendMessage(b1nzychannel, "I'm sorry, but there was a error while executing this command.\n" + err)
 }
 
 var dice = function (message) {
@@ -111,27 +123,26 @@ var dice = function (message) {
                         }
                     }
                 }
-            }
-        }
+    }
+}
 
 mybot.on("message", function (message) {
     messageCount = messageCount + 1
     logger("                    New message - Number: " + messageCount + "\n" + message.author + message.cleanContent)
-    if (message.channel.id === "152379357862690816" && message.author.id != "131285184451444736") {
-        return false
-    }
-        if (message.content === "!!ping") { ping(message) }
-        else if (message.content === "!!pong") { pong(message) }
-        else if (message.content === "!!fusion") { fusion(message) }
-        else if (message.content === "!!righten") { righten(message) }
-        else if (message.content === "!!msgcount") { msgcount(message) }
-        else if (message.content === "!!info") { info(message) }
-        else if (message.content === "!!commands") { commands(message) }
-        else if (message.content === "!!givemesucc") { givemesucc(message) }
-        else if (message.content === "!!changelog") { changelog(message) }
-        else if (message.content === "!!dice") { dice(message) }
-        else if (message.content === "!!outages") { outages(message) }
-        else if (message.content === "!!b1nzy") { b1nzy(message) }
+    if (message.channel.id === "152379357862690816" && message.author.id != "131285184451444736") { return false }
+    if (message.channel.id === "110373943822540800" && message.author.id != "131285184451444736") { return false }
+    if (message.content === "!!ping") { ping(message) }
+    else if (message.content === "!!pong") { pong(message) }
+    else if (message.content === "!!fusion") { fusion(message) }
+    else if (message.content === "!!righten") { righten(message) }
+    else if (message.content === "!!msgcount") { msgcount(message) }
+    else if (message.content === "!!info") { info(message) }
+    else if (message.content === "!!commands") { commands(message) }
+    else if (message.content === "!!givemesucc") { givemesucc(message) }
+    else if (message.content === "!!changelog") { changelog(message) }
+    else if (message.content === "!!dice") { dice(message) }
+    else if (message.content === "!!outages") { outages(message) }
+    else if (message.content === "!!b1nzy") { b1nzy(message) }
 });
 
 mybot.on("disconnected", function (reconnect) {
