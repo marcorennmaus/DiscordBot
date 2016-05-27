@@ -37,7 +37,7 @@ var fusion = function (message) {
 }
 
 var righten = function (message) {
-    mybot.sendMessage(message, "http://84.168.96.93/memes/dan_cucked_righten.png");
+    mybot.sendFile(message.channel, "C:/Users/User/DiscordBot/righten.png", error)
     logger("Command: !!righten")
 }
 
@@ -47,7 +47,7 @@ var msgcount = function (message) {
 }
 
 var info = function (message) {
-    mybot.sendMessage(message, "M_R Bot - Version 1.1.3 (Build 36) \nBuilddate: 27th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
+    mybot.sendMessage(message, "M_R Bot - Version 1.1.3.1 (Build 37) \nBuilddate: 27th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
     logger("Command: !!info")
 }
 
@@ -62,7 +62,7 @@ var givemesucc = function (message) {
 }
 
 var changelog = function (message) {
-    mybot.sendMessage(message, "M_R Bot Changelog:\n\nVersion 1.1.3:\n - If !!b1nzy fails, it will now respond with a error.\n- Restricted Bot Usage in #general on the Discord Bots-Server\n\nVersion 1.1.2:\n + Added !!b1nzy\n\nVersion 1.1.1:\n + Added !!outages\n\nVersion 1.1.0.1:\n - Restricted Bot Usage in #general on the MonsterLyrics server.\n\nVersion 1.1:\n + Rewrote Bot, Filesize significantly decreased.\n\nVersion 1.0.3.2:\n - Bugfix: Bot dies for no reason after inactivity\n\nVersion 1.0.3.1:\n - Modified !!info-Output\n\nVersion 1.0.3:\n + Added !!dice\n\nVersion 1.0.2:\n +Added message logging to a file\n\nVersion 1.0.1:\n+ Added !!commands\n+ Added !!info\n+ Added !!givemesucc\n+ Added !!changelog\n+ Added some logging to the Console\n\nVersion 1.0.0:\n- First Release")
+    mybot.sendMessage(message, "M_R Bot Changelog:\n\nVersion 1.1.3.1:\n - Modified !!righten so it sends the file itself now.\n\nVersion 1.1.3:\n - If !!b1nzy fails, it will now respond with a error.\n- Restricted Bot Usage in #general on the Discord Bots-Server\n\nVersion 1.1.2:\n + Added !!b1nzy\n\nVersion 1.1.1:\n + Added !!outages\n\nVersion 1.1.0.1:\n - Restricted Bot Usage in #general on the MonsterLyrics server.\n\nVersion 1.1:\n + Rewrote Bot, Filesize significantly decreased.\n\nVersion 1.0.3.2:\n - Bugfix: Bot dies for no reason after inactivity\n\nVersion 1.0.3.1:\n - Modified !!info-Output\n\nVersion 1.0.3:\n + Added !!dice\n\nVersion 1.0.2:\n +Added message logging to a file\n\nVersion 1.0.1:\n+ Added !!commands\n+ Added !!info\n+ Added !!givemesucc\n+ Added !!changelog\n+ Added some logging to the Console\n\nVersion 1.0.0:\n- First Release")
     logger("Command: !!changelog")
 }
 
