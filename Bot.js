@@ -1,7 +1,8 @@
 ﻿/*
 DiscordBot by marco_rennmaus
-Build: 30
+Build: 32
 Version 1.1.1
+Library used: discord.js
 */
 
 var Discord = require("discord.js");
@@ -46,7 +47,7 @@ var msgcount = function (message) {
 }
 
 var info = function (message) {
-    mybot.sendMessage(message, "M_R Bot - Version 1.1.1 (Build 31) \nBuilddate: 26th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
+    mybot.sendMessage(message, "M_R Bot - Version 1.1.2 (Build 32) \nBuilddate: 26th May 2016\nBot created by: marco_rennmaus | RMP#8575\n\nCommands are available under !!commands\nLatest changelog available under !!changelog");
     logger("Command: !!info")
 }
 
@@ -61,7 +62,7 @@ var givemesucc = function (message) {
 }
 
 var changelog = function (message) {
-    mybot.sendMessage(message, "M_R Bot Changelog:\n\nVersion 1.1.1:\n + Added !!outages\n\nVersion 1.1.0.1:\n - Restricted Bot Usage in #general on the MonsterLyrics server.\n\nVersion 1.1:\n + Rewrote Bot, Filesize significantly decreased.\n\nVersion 1.0.3.2:\n - Bugfix: Bot dies for no reason after inactivity\n\nVersion 1.0.3.1:\n - Modified !!info-Output\n\nVersion 1.0.3:\n + Added !!dice\n\nVersion 1.0.2:\n +Added message logging to a file\n\nVersion 1.0.1:\n+ Added !!commands\n+ Added !!info\n+ Added !!givemesucc\n+ Added !!changelog\n+ Added some logging to the Console\n\nVersion 1.0.0:\n- First Release")
+    mybot.sendMessage(message, "M_R Bot Changelog:\n\nVersion 1.1.2:\n + Added !!b1nzy\n\nVersion 1.1.1:\n + Added !!outages\n\nVersion 1.1.0.1:\n - Restricted Bot Usage in #general on the MonsterLyrics server.\n\nVersion 1.1:\n + Rewrote Bot, Filesize significantly decreased.\n\nVersion 1.0.3.2:\n - Bugfix: Bot dies for no reason after inactivity\n\nVersion 1.0.3.1:\n - Modified !!info-Output\n\nVersion 1.0.3:\n + Added !!dice\n\nVersion 1.0.2:\n +Added message logging to a file\n\nVersion 1.0.1:\n+ Added !!commands\n+ Added !!info\n+ Added !!givemesucc\n+ Added !!changelog\n+ Added some logging to the Console\n\nVersion 1.0.0:\n- First Release")
     logger("Command: !!changelog")
 }
 
@@ -69,6 +70,12 @@ var outages = function (message) {
     mybot.sendMessage(message, "Latest Outages:\nKeep in mind, that this Bot is actually not 24/7 online since it's hosted from the Owner's Computer.\n\n26th May 2016 - 21:00 CEST\nOutage for 2 Minutes due to a DDoS-Attack")
     logger("Command: !!outages")
 }
+
+var b1nzy = function (message) {
+    mybot.sendFile(message.channel, "C:/Users/User/DiscordBot/b1nzy.jpg")
+    logger("Command: !!binzy")
+}
+
 var dice = function (message) {
     var dice = Math.random()
     dice = dice * 6
@@ -124,6 +131,7 @@ mybot.on("message", function (message) {
         else if (message.content === "!!changelog") { changelog(message) }
         else if (message.content === "!!dice") { dice(message) }
         else if (message.content === "!!outages") { outages(message) }
+        else if (message.content === "!!b1nzy") { b1nzy(message) }
 });
 
 mybot.on("disconnected", function (reconnect) {
