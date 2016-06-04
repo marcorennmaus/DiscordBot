@@ -20,7 +20,6 @@ var contact = require("C:/Users/User/DiscordBot/cmd/contact.js")
 var stats = require("C:/Users/User/DiscordBot/cmd/stats.js")
 var servers = require("C:/Users/User/DiscordBot/cmd/servers.js")
 var error = require("C:/Users/User/DiscordBot/cmd/error.js")
-var righten2 = require("C:/Users/User/DiscordBot/cmd/righten2.js")
 
 module.exports = {
     cmd: function (message, mybot, logger, messageCount, fs, db, error) {
@@ -45,6 +44,5 @@ module.exports = {
         else if (message.content.startsWith("!!contact")) { contact.cmd(message, mybot, logger) }
         else if (message.content === "!!stats") { stats.cmd(message, mybot, logger) }
         else if (message.content === "!!servers") { servers.cmd(message, mybot, logger) }
-        else if (message.content === "!!righten2") { righten2.cmd(message, mybot, logger, error) }
     },
 }
