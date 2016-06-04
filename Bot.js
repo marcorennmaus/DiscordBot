@@ -113,10 +113,12 @@ mybot.on("message", function (message) {
 
 mybot.on("disconnected", function (reconnect) {
     logger("It appears that the Connection to Discord died. Reconnecting...")
+    mybot.loginWithToken("token");
     logger("Attempted Login with Token")
 }
 )
 
 dbread()
 
+mybot.loginWithToken("token");
 logger("Logged on.")
