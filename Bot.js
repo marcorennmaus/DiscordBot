@@ -84,8 +84,6 @@ mybot.on("message", function (message) {
     /*if (message.channel.server.id === "153368849100701696") {
         mybot.sendMessage(message, ".screenshot")
     }*/
-    if (message.author.id === "158124575706578944" && message.content.startsWith("Welcome")) { mybot.sendMessage(message, "hi fishy") }
-    if (message.channel.id === "152379357862690816" && message.author.id != "131285184451444736") { return false }
     if (message.channel.id === "110373943822540800" && message.author.id != "131285184451444736") { return false }
     //if (message.content === "!!ping") { ping.cmd(message) }
     cmd.cmd(message, mybot, logger, messageCount, fs, db, error)
