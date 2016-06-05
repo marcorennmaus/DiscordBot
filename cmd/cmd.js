@@ -21,12 +21,12 @@ var stats = require("C:/Users/User/DiscordBot/cmd/stats.js")
 var servers = require("C:/Users/User/DiscordBot/cmd/servers.js")
 var error = require("C:/Users/User/DiscordBot/cmd/error.js")
 var righten2 = require("C:/Users/User/DiscordBot/cmd/righten2.js")
+var users = require("C:/Users/User/DiscordBot/cmd/users.js")
 
 module.exports = {
     cmd: function (message, mybot, logger, messageCount, fs, db, error) {
         if (message.content === "!!ping") { ping.cmd(message, mybot, logger) }
         else if (message.content === "!!pong") { pong.cmd(message, mybot, logger) }
-        /*else if (message.content === "!!fusion") { fusion.cmd(message, mybot, logger) }*/
         else if (message.content === "!!righten") { righten.cmd(message, mybot, logger, error) }
         else if (message.content === "!!msgcount") { msgcount.cmd(message, mybot, logger, messageCount) }
         else if (message.content === "!!info") { info.cmd(message, mybot, logger) }
@@ -34,7 +34,6 @@ module.exports = {
         else if (message.content === "!!givemesucc") { givemesucc.cmd(message, mybot, logger) }
         else if (message.content.startsWith("!!changelog")) { changelog.cmd(message, mybot, logger) }
         else if (message.content === "!!dice") { dice.cmd(message, mybot, logger) }
-        /*else if (message.content === "!!outages") { outages.cmd(message, mybot, logger) }*/
         else if (message.content === "!!b1nzy") { b1nzy.cmd(message, mybot, logger, error) }
         else if (message.content === "!!savedata") { savedata.cmd(message, mybot, logger, fs, db, messageCount) }
         else if (message.content === "!!readdata") { readdata.cmd(message, mybot, logger, fs, db, messageCount) }
@@ -46,5 +45,6 @@ module.exports = {
         else if (message.content === "!!stats") { stats.cmd(message, mybot, logger) }
         else if (message.content === "!!servers") { servers.cmd(message, mybot, logger) }
         else if (message.content === "!!righten2") { righten2.cmd(message, mybot, logger, error) }
+        else if (message.content === "!!users") { users.cmd(message, mybot, logger) }
     },
 }
