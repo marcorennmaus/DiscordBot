@@ -1,12 +1,12 @@
-﻿var Discord = require("discord.js");
-var f = 'C:/Users/User/DiscordBot/Logs/log.txt',
+﻿//Directory where the bot is placed in, change if needed
+var Discord = require("discord.js");
+var f = "./Logs/log.txt",
     fs = require('fs'),
-    db = "C:/Users/User/DiscordBot/Data.txt";
-var cmd = require("C:/Users/User/DiscordBot/cmd/cmd.js")
-var ping = require("C:/Users/User/DiscordBot/cmd/ping.js")
+    db = "./Data.txt";
+var cmd = require("./cmd/cmd.js")
 var mybot = new Discord.Client();
 var messageCount = 0
-var usrtrk = "C:/Users/User/DiscordBot/Users.csv"
+var usrtrk = "./Users.csv"
 
 var logger = function (input) {
     console.log(input)
@@ -78,35 +78,10 @@ mybot.on("message", function (message) {
     if (d[4] < 10) { d[4] = "0" + d[4] }
     if (d[5] < 10) { d[5] = "0" + d[5] }
 
-    //logger(d[2])
     messageCount = messageCount + 1
     logger("[" + d[2] + "." + d[1] + "." + d[0] + " " + d[3] + ":" + d[4] + ":" + d[5] + "]" /*+ "[" + messageCount + "]" */ + "[" + message.channel.name + "@" + message.channel.server + "]" + "<" + message.author.name + "#" + message.author.discriminator + "> " + message.cleanContent)
-    /*if (message.channel.server.id === "153368849100701696") {
-        mybot.sendMessage(message, ".screenshot")
-    }*/
     if (message.channel.id === "110373943822540800" && message.author.id != "131285184451444736") { return false }
-    //if (message.content === "!!ping") { ping.cmd(message) }
     cmd.cmd(message, mybot, logger, messageCount, fs, db, error)
-    /*else if (message.content === "!!pong") { pong(message) }
-    /*else if (message.content === "!!fusion") { fusion(message) }
-    else if (message.content === "!!righten") { righten(message) }
-    else if (message.content === "!!msgcount") { msgcount(message) }
-    else if (message.content === "!!info") { info(message) }
-    else if (message.content === "!!commands") { commands(message) }
-    else if (message.content === "!!givemesucc") { givemesucc(message) }
-    else if (message.content.startsWith("!!changelog")) { changelog(message) }
-    else if (message.content === "!!dice") { dice(message) }
-   /*else if (message.content === "!!outages") { outages(message) }
-    else if (message.content === "!!b1nzy") { b1nzy(message) }
-    else if (message.content === "!!savedata") { dbwrite(message) }
-    else if (message.content === "!!readdata") { dbread(message) }
-    else if (message.content === "!!comparedata") { dbcompare(message) }
-    else if (message.content === "!!joinlink") { joinlink(message) }
-    else if (message.content.startsWith("!!test ")) { test(message) }
-    else if (message.content.startsWith("!!playing ")) { playing(message) }
-    else if (message.content.startsWith("!!contact")) { contact(message) }
-    else if (message.content === "!!stats") { stats(message) }
-    else if (message.content === "!!servers") { servers(message) }*/
 });
 
 mybot.on("disconnected", function (reconnect) {
