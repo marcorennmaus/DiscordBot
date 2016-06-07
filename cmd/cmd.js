@@ -22,6 +22,7 @@ var servers = require("../cmd/servers.js")
 var error = require("../cmd/error.js")
 var righten2 = require("../cmd/righten2.js")
 var users = require("../cmd/users.js")
+var broadcast = require("../cmd/broadcast.js")
 
 
 module.exports = {
@@ -47,5 +48,6 @@ module.exports = {
         else if (message.content === "!!servers") { servers.cmd(message, mybot, logger) }
         else if (message.content === "!!righten2") { righten2.cmd(message, mybot, logger, error) }
         else if (message.content === "!!users") { users.cmd(message, mybot, logger) }
+        else if (message.content.startsWith("!!broadcast.")) { broadcast.cmd(message, mybot, logger) }
     },
 }
